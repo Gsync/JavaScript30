@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Array Cardio 💪</title>
-</head>
-<body>
-  <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
-  <script>
     // Get your shorts on - this is an array workout!
     // ## Array Cardio Day 1
 
     // Some data we can work with
-
     const inventors = [
       { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
       { first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
@@ -31,17 +21,34 @@
 
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
-
+const result = inventors.filter(function(val) {
+    return val.year > 1500 && val.year < 1600;
+});
     // Array.prototype.map()
     // 2. Give us an array of the inventors' first and last names
+
+    const names = inventors.map(function(v) {
+        return `${v.first} ${v.last}`;
+    })
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
 
+    const byBirth = inventors.sort((a,b) => a.year > b.year ? 1 : -1);
+
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live?
 
+    var yearsLived = inventors.reduce((a, b) => (b.passed - b.year) + a, 0);
+    
     // 5. Sort the inventors by years lived
+
+    const oldest = inventors.sort(function(a,b) {
+        const p1 = a.passed - a.year;
+        const p2 = b.passed - b.year;
+        return p1 > p2 ? -1 : 1;
+    });
+    console.table(oldest);
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
@@ -54,6 +61,11 @@
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
 
-  </script>
-</body>
-</html>
+    const result2 = data.reduce(function (a, b) {
+        if (!a[b]) {
+            a[b] = 0;
+        }
+        a[b]++;
+        return a;
+    }, {});
+    console.table(result2);
