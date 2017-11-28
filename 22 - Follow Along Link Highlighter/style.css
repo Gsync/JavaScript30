@@ -35,7 +35,7 @@ a {
   border-bottom:2px solid white;
   position: absolute;
   top:0;
-  background:white;
+  background:rgb(246, 203, 203);
   left:0;
   z-index: -1;
   border-radius:20px;
