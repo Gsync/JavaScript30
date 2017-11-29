@@ -23,6 +23,11 @@ body {
   transition: transform 0.5s;
 }
 
+.fixed-nav nav {
+  position: fixed;
+  box-shadow: 0 5px rgba(0, 0, 0, 0.5);
+}
+
 header {
   text-align: center;
   height:50vh;
